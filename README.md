@@ -14,6 +14,8 @@ Delete selected user cards: You can delete multiple user cards at once by select
 
 Search for users by name: You can search for users by first name or last name using the search bar at the top of the page.
 
+You can open the project by clicking on this link: https://valeriasarazhinska.github.io/techmagic-angular/
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
