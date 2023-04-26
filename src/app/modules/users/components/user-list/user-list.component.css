@@ -1,0 +1,33 @@
+:host {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.select-menu {
+  margin-top: 10px;
+}
+
+.sort-menu {
+  margin-top: 20px;
+}
+
+.user-list {
+  flex: 1;
+  display: flex;
+  gap: 60px;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: rgb(253, 236, 244);
+  padding: 50px;
+}
+
+.delete-button {
+  margin-left: 20px;
+}
+
+@media screen and (min-width: 1200px) {
+  mat-toolbar {
+    flex-direction: row;
+  }
+}

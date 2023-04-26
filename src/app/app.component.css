@@ -1,0 +1,10 @@
+:host {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  padding: 15px 25px;
+  border-bottom: 2px solid #c5c5c5;
+}
