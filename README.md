@@ -2,6 +2,18 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.6.
 
+## Here are the key features of the project:
+
+Display user cards: You can view user cards on the main page.
+
+Select user cards with checkboxes: You can select multiple user cards using checkboxes.
+
+Sort user cards: You can sort user cards by various criteria, such as first name, last name, or id.
+
+Delete selected user cards: You can delete multiple user cards at once by selecting them and clicking the "Delete" button.
+
+Search for users by name: You can search for users by first name or last name using the search bar at the top of the page.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
