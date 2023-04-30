@@ -22,7 +22,7 @@
   padding: 50px;
 }
 
-.delete-button {
+.delete-button, .create-button {
   margin-left: 20px;
 }
 

@@ -1,0 +1,23 @@
+<mat-toolbar color="primary" class="user-menu">
+  <mat-toolbar-row class="select-menu">
+    <mat-checkbox [(ngModel)]="isAllSelected" (change)="isAllSelected ? selectAll() : deselectAll()"
+                  [disabled]="!users.length">Select all
+    </mat-checkbox>
+
+    <button class="delete-button" mat-flat-button color="accent" (click)="deleteSelected()"
+            [disabled]="!selectedUserIds.length">Delete selected
+    </button>
+  </mat-toolbar-row>
+  <mat-toolbar-row class="sort-menu">
+    <app-user-sort (sort)="sortUsers($event)"></app-user-sort>
+
+    <mat-form-field>
+      <input matInput type="text" placeholder="Search users" [(ngModel)]="searchTerm">
+    </mat-form-field>
+  </mat-toolbar-row>
+</mat-toolbar>
+<div class="user-list">
+  <app-user-card *ngFor="let user of users | filterUsers:searchTerm" [user]="user"
+                 [isSelected]="selectedUserIds.includes(user.id)"
+                 (userSelect)="onUserSelect($event)"></app-user-card>
+</div>

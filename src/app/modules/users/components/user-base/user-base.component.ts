@@ -1,29 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {
   User,
   UserSelectionEvent,
   UserSortEvent,
 } from '../../models/user.interface';
-import { UserService } from '../../services/user.service';
 
 @Component({
-  selector: 'app-user-list',
-  templateUrl: './user-list.component.html',
-  styleUrls: ['./user-list.component.css'],
+  selector: 'app-user-base',
+  templateUrl: './user-base.component.html',
+  styleUrls: ['./user-base.component.css'],
 })
-export class UserListComponent implements OnInit {
+export class UserBaseComponent {
   users: User[] = [];
   selectedUserIds: number[] = [];
   isAllSelected = false;
   searchTerm = '';
 
-  constructor(private userService: UserService) {}
-
-  ngOnInit(): void {
-    this.userService.getUsers().subscribe((users) => {
-      this.users = users;
-    });
-  }
+  constructor() {}
 
   onUserSelect({ userId, selected }: UserSelectionEvent): void {
     if (selected) {
@@ -42,11 +35,11 @@ export class UserListComponent implements OnInit {
     this.selectedUserIds = [];
   }
 
-  onDeleteSelected(): void {
+  deleteSelected(): void {
     this.users = this.users.filter(
       (user) => !this.selectedUserIds.includes(user.id)
     );
-    this.selectedUserIds = [];
+    this.deselectAll();
     this.isAllSelected = false;
   }
 

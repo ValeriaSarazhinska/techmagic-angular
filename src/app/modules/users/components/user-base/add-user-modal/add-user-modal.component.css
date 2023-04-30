@@ -1,0 +1,21 @@
+:host {
+  width: 450px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  background-color: #424242;
+}
+
+.title {
+  color: #c1185b;
+  font-weight: bold;
+}
+
+.form-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-actions{
+  justify-content: center;
+}

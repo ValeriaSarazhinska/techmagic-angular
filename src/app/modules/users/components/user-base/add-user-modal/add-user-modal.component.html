@@ -1,0 +1,33 @@
+  <h3 class="title" mat-dialog-title>Add User</h3>
+  <form class="form" [formGroup]="userForm">
+    <div mat-dialog-content class="form-content">
+      <mat-form-field>
+        <input matInput placeholder="First Name" formControlName="firstName">
+        <mat-error *ngIf="firstName?.invalid && (firstName?.dirty || firstName?.touched)">
+          First name must be at least 3 characters long
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Last Name" formControlName="lastName">
+        <mat-error *ngIf="lastName?.invalid && (lastName?.dirty || lastName?.touched)">
+          Last name must be between 3 and 60 characters long
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Email" formControlName="email">
+        <mat-error *ngIf="email?.invalid && (email?.dirty || email?.touched)">
+          Email must be a valid email address
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Phone Number" formControlName="phone">
+        <mat-error *ngIf="phone?.invalid && (phone?.dirty || phone?.touched)">
+          Phone number must contain only numeric symbols
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div mat-dialog-actions class="form-actions">
+      <button mat-stroked-button color="primary" (click)="onSubmit()">Submit</button>
+      <button mat-stroked-button color="primary" (click)="onClose()">Cancel</button>
+    </div>
+  </form>

@@ -4,7 +4,7 @@
                   [disabled]="!users.length">Select all
     </mat-checkbox>
 
-    <button class="delete-button" mat-flat-button color="accent" (click)="onDeleteSelected()"
+    <button class="delete-button" mat-flat-button color="accent" (click)="deleteSelected()"
             [disabled]="!selectedUserIds.length">Delete selected
     </button>
   </mat-toolbar-row>
