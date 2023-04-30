@@ -1,4 +1,7 @@
 <mat-toolbar class="header" color="primary">
-  <span>Angular lecture 1</span>
+<nav class="navigate">
+    <a class="link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">First task</a>
+    <a  class="link" routerLink="/second" routerLinkActive="active">Second task</a>
+  </nav>
 </mat-toolbar>
-<app-user-list></app-user-list>
+<router-outlet></router-outlet>

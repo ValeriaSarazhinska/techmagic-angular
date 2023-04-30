@@ -5,6 +5,31 @@
 }
 
 .header {
-  padding: 15px 25px;
+  padding: 40px 25px;
   border-bottom: 2px solid #c5c5c5;
+}
+
+.navigate {
+  display: flex;
+  gap: 20px;
+}
+
+.link {
+  padding: 6px 12px;
+  text-decoration: none;
+  background-color: rgba(255, 255, 255, 0.83);
+  color: #c1185b;
+  border-radius: 5px;
+}
+
+.link:hover {
+  background-color: rgba(255, 255, 255, 0.73);
+  color: #c1185b;
+}
+
+.link.active {
+  background-color: #fffdfd;
+  color: #c1185b;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.37);
+  font-weight: 700;
 }

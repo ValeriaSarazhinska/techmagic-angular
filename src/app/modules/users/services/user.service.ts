@@ -3,15 +3,23 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../models/user.interface';
 
-const USERS_URL = 'assets/data/users.json';
-
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
+  readonly usersApiUrl = 'https://jsonplaceholder.typicode.com/users';
+
   constructor(private http: HttpClient) {}
 
-  getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(USERS_URL);
+  getUsers<T>(url: string = this.usersApiUrl): Observable<T> {
+    return this.http.get<T>(url);
+  }
+
+  deleteUser(id: number) {
+    return this.http.delete(`${this.usersApiUrl}/${id}`);
+  }
+
+  createUser(user: Omit<User, 'id' | 'image'>) {
+    return this.http.post(this.usersApiUrl, user);
   }
 }
