@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserBaseComponent } from '../user-base/user-base.component';
 import { UserService } from '../../services/user.service';
 import { User, UserFromApi } from '../../models/user.interface';
-import { map } from 'rxjs';
+import { map, Subscription } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { AddUserModalComponent } from '../user-base/add-user-modal/add-user-modal.component';
 
@@ -12,12 +12,13 @@ import { AddUserModalComponent } from '../user-base/add-user-modal/add-user-moda
   styleUrls: ['../user-base/user-base.component.css'],
 })
 export class SecondTaskComponent extends UserBaseComponent implements OnInit {
+  subscription?: Subscription;
   constructor(private userService: UserService, private dialog: MatDialog) {
     super();
   }
 
   ngOnInit(): void {
-    this.userService
+    this.subscription = this.userService
       .getUsers<UserFromApi[]>()
       .pipe(
         map((users) =>
@@ -34,6 +35,10 @@ export class SecondTaskComponent extends UserBaseComponent implements OnInit {
       .subscribe((users: User[]) => {
         this.users = users;
       });
+  }
+
+  ngOnDestroy(): void {
+    this.subscription?.unsubscribe();
   }
 
   override deleteSelected() {

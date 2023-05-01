@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserBaseComponent } from '../user-base/user-base.component';
 import { UserService } from '../../services/user.service';
 import { User } from '../../models/user.interface';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-first-task',
@@ -10,6 +11,7 @@ import { User } from '../../models/user.interface';
 })
 export class FirstTaskComponent extends UserBaseComponent implements OnInit {
   readonly apiUrl = 'assets/data/users.json';
+  subscription?: Subscription;
 
   constructor(private userService: UserService) {
     super();
@@ -17,8 +19,13 @@ export class FirstTaskComponent extends UserBaseComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.userService.getUsers<User[]>(this.apiUrl).subscribe((users) => {
-      this.users = users;
-    });
+    this.subscription = this.userService
+      .getUsers<User[]>(this.apiUrl)
+      .subscribe((users) => {
+        this.users = users;
+      });
+  }
+  ngOnDestroy(): void {
+    this.subscription?.unsubscribe();
   }
 }
